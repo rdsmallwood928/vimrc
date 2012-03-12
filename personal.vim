@@ -64,7 +64,7 @@ set ttimeoutlen=100
 """"""""""""""""""""""""""""""
 set t_Co=256 " enable 256 color mode (which supports transparency)
 set background=dark
-colorscheme solarized
+colorscheme peaksea
 
 if has('gui_running')
   set guifont=DejaVu\ Sans\ Mono\ 8
@@ -151,7 +151,6 @@ au FileType python syn keyword pythonDecorator True None False self
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
 
-
 """"""""""""""""""""""""""""""
 " => Buffers
 """"""""""""""""""""""""""""""
@@ -214,6 +213,9 @@ endfunction
 nnoremap <F8> :call TogglePaste()<cr>
 inoremap <F8> <esc>:call TogglePaste()<cr>a
 
+" Use CTRL-C to copy visual selection
+map <C-c> "+y<CR>
+
 "wrap toggle
 nnoremap <F9> :set wrap!<cr>
 
@@ -225,7 +227,7 @@ map <C-H> <C-W>h<C-W>_
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
-" files.
+" file.
 function! AppendModeline()
   let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d :",
         \ &filetype, &tabstop, &shiftwidth, &textwidth)
