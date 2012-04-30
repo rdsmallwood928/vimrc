@@ -21,6 +21,7 @@ set showmode " show current mode
 set showcmd " show command characters
 set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
+set backspace=2
 
 " Don't auto format comments when hitting <enter> in insert mode
 " or <o>/<O> in normal mode
@@ -57,6 +58,10 @@ nmap Y y$
 set timeout
 set timeoutlen=500
 set ttimeoutlen=100
+
+filetype plugin on
+filetype indent on
+syntax on
 
 
 """"""""""""""""""""""""""""""
