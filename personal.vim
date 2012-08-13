@@ -69,7 +69,7 @@ syntax on
 """"""""""""""""""""""""""""""
 set t_Co=256 " enable 256 color mode (which supports transparency)
 set background=dark
-colorscheme peaksea
+colorscheme solarized
 
 if has('gui_running')
   set guifont=DejaVu\ Sans\ Mono\ 8

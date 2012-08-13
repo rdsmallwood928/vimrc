@@ -11,6 +11,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'motemen/git-vim'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
 Bundle 'int3/vim-extradite'
 Bundle 'tmatilai/gitolite.vim'
 Bundle 'ervandew/supertab'
@@ -34,7 +35,7 @@ Bundle 'edsono/vim-matchit'
 "Bundle 'honza/snipmate-snippets'
 
 Bundle 'puppetlabs/puppet-syntax-vim'
-
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'kien/ctrlp.vim'
 
 filetype plugin indent on
