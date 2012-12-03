@@ -1,0 +1,1 @@
+These are my personal vim configurations set up to be linked in using Homesick. They are based on elementalvoid/vimrc.
