@@ -72,7 +72,7 @@ set background=dark
 colorscheme solarized
 
 if has('gui_running')
-  set guifont=DejaVu\ Sans\ Mono\ 8
+  set guifont=Source\ Code\ Pro:h14
 endif
 
 
@@ -80,13 +80,13 @@ endif
 " =>Tabbing and indenting
 """"""""""""""""""""""""""""""
 set autoindent
-set smartindent
 set smarttab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2 " if it looks like a tab, we can delete it like a tab
 set shiftround " < and > will hit indentation levels
 set expandtab
+let g:sh_indent_case_labels=1
 
 "Some handy tab width goodness
 map <leader>t2 :setlocal shiftwidth=2<cr>
@@ -155,6 +155,7 @@ au FileType python syn keyword pythonDecorator True None False self
 
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
+
 
 """"""""""""""""""""""""""""""
 " => Buffers
