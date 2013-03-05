@@ -1,106 +1,189 @@
-" Vim syntax file
-"  Language:	Manpageview
-"  Maintainer:	Charles E. Campbell, Jr.
-"  Last Change:	Aug 12, 2008
-"  Version:    	6	ASTRO-ONLY
-"
-"  History:
-"    2: * Now has conceal support
-"       * complete substitute for distributed <man.vim>
-" ---------------------------------------------------------------------
-if version < 600
-  syntax clear
-elseif exists("b:current_syntax")
-  finish
-endif
-if !has("conceal")
- " hide control characters, especially backspaces
- if version >= 600
-  run! syntax/ctrlh.vim
- else
-  so <sfile>:p:h/ctrlh.vim
- endif
-endif
+" Vim filetype plugin file
+" Language: man
+" Maintainer: SungHyun Nam <goweol@gmail.com>
+" Last Change:  2012 Mar 6
 
-syn case ignore
-" following four lines taken from Vim's <man.vim>:
-syn match  manReference		"\f\+([1-9]\l\=)"
-syn match  manSectionTitle	'^\u\{2,}\(\s\+\u\{2,}\)*'
-syn match  manSubSectionTitle	'^\s+\zs\u\{2,}\(\s\+\u\{2,}\)*'
-syn match  manTitle		"^\f\+([0-9]\+\l\=).*"
-syn match  manSectionHeading	"^\l[a-z ]*\l$"
-syn match  manOptionDesc	"^\s*\zs[+-]\{1,2}\w\S*"
+" To make the ":Man" command available before editing a manual page, source
+" this script from your startup vimrc file.
 
-syn match  manSectionHeading	"^\s\+\d\+\.[0-9.]*\s\+\u.*$"		contains=manSectionNumber
-syn match  manSectionNumber	"^\s\+\d\+\.\d*"			contained
-syn region manDQString		start='[^a-zA-Z"]"[^", )]'lc=1		end='"'		end='^$' contains=manSQString
-syn region manSQString		start="[ \t]'[^', )]"lc=1		end="'"		end='^$'
-syn region manSQString		start="^'[^', )]"lc=1			end="'"		end='^$'
-syn region manBQString		start="[^a-zA-Z`]`[^`, )]"lc=1		end="[`']"	end='^$'
-syn region manBQString		start="^`[^`, )]"			end="[`']"	end='^$'
-syn region manBQSQString	start="``[^),']"			end="''"	end='^$'
-syn match  manBulletZone	"^\s\+o\s"				transparent contains=manBullet
-syn case match
+" If 'filetype' isn't "man", we must have been called to only define ":Man".
+if &filetype == "man"
 
-syn keyword manBullet		o					contained
-syn match   manBullet		"\[+*]"					contained
-syn match   manSubSectionStart	"^\*"					skipwhite nextgroup=manSubSection
-syn match   manSubSection	".*$"					contained
-syn match   manOptionWord	"\s[+-]\a\+\>"
+  " Only do this when not done yet for this buffer
+  if exists("b:did_ftplugin")
+    finish
+  endif
+  let b:did_ftplugin = 1
 
-if has("conceal")
- setlocal conc=3
- syn match manSubTitle		/\(.\b.\)\+/	contains=manSubTitleHide
- syn match manUnderline		/\(_\b.\)\+/	contains=manSubTitleHide
- syn match manSubTitleHide	/.\b/		conceal contained
+  " Ensure Vim is not recursively invoked (man-db does this)
+  " when doing ctrl-[ on a man page reference.
+  if exists("$MANPAGER")
+    let $MANPAGER = ""
+  endif
+
+  " allow dot and dash in manual page name.
+  setlocal iskeyword+=\.,-
+
+  " Add mappings, unless the user didn't want this.
+  if !exists("no_plugin_maps") && !exists("no_man_maps")
+    if !hasmapto('<Plug>ManBS')
+      nmap <buffer> <LocalLeader>h <Plug>ManBS
+    endif
+    nnoremap <buffer> <Plug>ManBS :%s/.\b//g<CR>:setl nomod<CR>''
+
+    nnoremap <buffer> <c-]> :call <SID>PreGetPage(v:count)<CR>
+    nnoremap <buffer> <c-t> :call <SID>PopPage()<CR>
+  endif
+
+  let b:undo_ftplugin = "setlocal iskeyword<"
+
 endif
 
-" my RH8 linux's man page puts some pretty oddball characters into its
-" manpages...
-silent! %s/’/'/ge
-silent! %s/−/-/ge
-silent! %s/‐$/-/e
-silent! %s/‘/`/ge
-silent! %s/‐/-/ge
-norm! 1G
-
-set ts=8
-
-com! -nargs=+ HiLink hi def link <args>
-
-HiLink manTitle		Title
-"  HiLink manSubTitle		Statement
-HiLink manUnderline		Type
-HiLink manSectionHeading	Statement
-HiLink manOptionDesc		Constant
-
-HiLink manReference		PreProc
-HiLink manSectionTitle	Function
-HiLink manSectionNumber	Number
-HiLink manDQString		String
-HiLink manSQString		String
-HiLink manBQString		String
-HiLink manBQSQString		String
-HiLink manBullet		Special
-if has("win32") || has("win95") || has("win64") || has("win16")
- if &shell == "bash"
-  hi manSubSectionStart	term=NONE      cterm=NONE      gui=NONE      ctermfg=black ctermbg=black guifg=navyblue guibg=navyblue
-  hi manSubSection		term=underline cterm=underline gui=underline ctermfg=green guifg=green
-  hi manSubTitle		term=NONE      cterm=NONE      gui=NONE      ctermfg=cyan  ctermbg=blue  guifg=cyan     guibg=blue
- else
-  hi manSubSectionStart	term=NONE      cterm=NONE      gui=NONE      ctermfg=black ctermbg=black guifg=black    guibg=black
-  hi manSubSection		term=underline cterm=underline gui=underline ctermfg=green guifg=green
-  hi manSubTitle		term=NONE      cterm=NONE      gui=NONE      ctermfg=cyan  ctermbg=blue  guifg=cyan     guibg=blue
- endif
-else
- hi manSubSectionStart	term=NONE      cterm=NONE      gui=NONE      ctermfg=black ctermbg=black guifg=navyblue guibg=navyblue
- hi manSubSection		term=underline cterm=underline gui=underline ctermfg=green guifg=green
- hi manSubTitle		term=NONE      cterm=NONE      gui=NONE      ctermfg=cyan  ctermbg=blue  guifg=cyan     guibg=blue
+if exists(":Man") != 2
+  com -nargs=+ Man call s:GetPage(<f-args>)
+  nmap <Leader>K :call <SID>PreGetPage(0)<CR>
 endif
-"  hi link manSubSectionTitle	manSubTitle
 
-delcommand HiLink
+" Define functions only once.
+if !exists("s:man_tag_depth")
 
-let b:current_syntax = "man"
+let s:man_tag_depth = 0
 
-" vim:ts=8
+let s:man_sect_arg = ""
+let s:man_find_arg = "-w"
+try
+  if !has("win32") && $OSTYPE !~ 'cygwin\|linux' && system('uname -s') =~ "SunOS" && system('uname -r') =~ "^5"
+    let s:man_sect_arg = "-s"
+    let s:man_find_arg = "-l"
+  endif
+catch /E145:/
+  " Ignore the error in restricted mode
+endtry
+
+func <SID>PreGetPage(cnt)
+  if a:cnt == 0
+    let old_isk = &iskeyword
+    setl iskeyword+=(,)
+    let str = expand("<cword>")
+    let &l:iskeyword = old_isk
+    let page = substitute(str, '(*\(\k\+\).*', '\1', '')
+    let sect = substitute(str, '\(\k\+\)(\([^()]*\)).*', '\2', '')
+    if match(sect, '^[0-9 ]\+$') == -1
+      let sect = ""
+    endif
+    if sect == page
+      let sect = ""
+    endif
+  else
+    let sect = a:cnt
+    let page = expand("<cword>")
+  endif
+  call s:GetPage(sect, page)
+endfunc
+
+func <SID>GetCmdArg(sect, page)
+  if a:sect == ''
+    return a:page
+  endif
+  return s:man_sect_arg.' '.a:sect.' '.a:page
+endfunc
+
+func <SID>FindPage(sect, page)
+  let where = system("/usr/bin/man ".s:man_find_arg.' '.s:GetCmdArg(a:sect, a:page))
+  if where !~ "^/"
+    if matchstr(where, " [^ ]*$") !~ "^ /"
+      return 0
+    endif
+  endif
+  return 1
+endfunc
+
+func <SID>GetPage(...)
+  if a:0 >= 2
+    let sect = a:1
+    let page = a:2
+  elseif a:0 >= 1
+    let sect = ""
+    let page = a:1
+  else
+    return
+  endif
+
+  " To support:     nmap K :Man <cword>
+  if page == '<cword>'
+    let page = expand('<cword>')
+  endif
+
+  if sect != "" && s:FindPage(sect, page) == 0
+    let sect = ""
+  endif
+  if s:FindPage(sect, page) == 0
+    echo "\nCannot find a '".page."'."
+    return
+  endif
+  exec "let s:man_tag_buf_".s:man_tag_depth." = ".bufnr("%")
+  exec "let s:man_tag_lin_".s:man_tag_depth." = ".line(".")
+  exec "let s:man_tag_col_".s:man_tag_depth." = ".col(".")
+  let s:man_tag_depth = s:man_tag_depth + 1
+
+  " Use an existing "man" window if it exists, otherwise open a new one.
+  if &filetype != "man"
+    let thiswin = winnr()
+    exe "norm! \<C-W>b"
+    if winnr() > 1
+      exe "norm! " . thiswin . "\<C-W>w"
+      while 1
+  if &filetype == "man"
+    break
+  endif
+  exe "norm! \<C-W>w"
+  if thiswin == winnr()
+    break
+  endif
+      endwhile
+    endif
+    if &filetype != "man"
+      new
+      setl nonu fdc=0
+    endif
+  endif
+  silent exec "edit $HOME/".page.".".sect."~"
+  " Avoid warning for editing the dummy file twice
+  setl buftype=nofile noswapfile
+
+  setl ma
+  silent exec "norm 1GdG"
+  let $MANWIDTH = winwidth(0)
+  silent exec "r!/usr/bin/man ".s:GetCmdArg(sect, page)." | col -b"
+  " Remove blank lines from top and bottom.
+  while getline(1) =~ '^\s*$'
+    silent norm ggdd
+  endwhile
+  while getline('$') =~ '^\s*$'
+    silent norm Gdd
+  endwhile
+  1
+  setl ft=man nomod
+  setl bufhidden=hide
+  setl nobuflisted
+endfunc
+
+func <SID>PopPage()
+  if s:man_tag_depth > 0
+    let s:man_tag_depth = s:man_tag_depth - 1
+    exec "let s:man_tag_buf=s:man_tag_buf_".s:man_tag_depth
+    exec "let s:man_tag_lin=s:man_tag_lin_".s:man_tag_depth
+    exec "let s:man_tag_col=s:man_tag_col_".s:man_tag_depth
+    exec s:man_tag_buf."b"
+    exec s:man_tag_lin
+    exec "norm ".s:man_tag_col."|"
+    exec "unlet s:man_tag_buf_".s:man_tag_depth
+    exec "unlet s:man_tag_lin_".s:man_tag_depth
+    exec "unlet s:man_tag_col_".s:man_tag_depth
+    unlet s:man_tag_buf s:man_tag_lin s:man_tag_col
+  endif
+endfunc
+
+endif
+
+" vim: set sw=2:
