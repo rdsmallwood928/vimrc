@@ -13,7 +13,7 @@ Bundle 'motemen/git-vim'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'int3/vim-extradite'
-Bundle 'airblade/vim-gitgutter'
+Bundle 'mhinz/vim-signify'
 
 "Syntax etc.
 Bundle 'scrooloose/syntastic'
@@ -33,5 +33,13 @@ endif
 Bundle 'edsono/vim-matchit'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-airline'
+Bundle 'edkolev/promptline.vim'
+Bundle 'rking/ag.vim'
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'Xuyuanp/nerdtree-git-plugin'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'tpope/vim-surround'
 
 filetype plugin indent on
