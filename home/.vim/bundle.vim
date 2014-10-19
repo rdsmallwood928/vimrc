@@ -20,6 +20,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/bash-support.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'puppetlabs/puppet-syntax-vim'
+Bundle 'kchmck/vim-coffee-script'
 
 "Other tools
 Bundle 'vim-scripts/bufexplorer.zip'
@@ -41,5 +42,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'tpope/vim-surround'
+Bundle 'editorconfig/editorconfig-vim'
 
 filetype plugin indent on
