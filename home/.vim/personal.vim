@@ -72,7 +72,7 @@ set background=dark
 colorscheme solarized
 
 if has('gui_running')
-  set guifont=Source\ Code\ Pro:h14
+  "set guifont=Source\ Code\ Pro:h14
 endif
 
 
@@ -303,6 +303,27 @@ unlet tmp
 " => Powerline / Airline
 """"""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
+set guifont=Liberation\ Mono\ for\ Powerline\ 10 
+set encoding=utf-8
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+"unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " sections (a, b, c, x, y, z, warn) are optional
 let g:promptline_preset = {
@@ -332,7 +353,7 @@ let g:promptline_preset = {
 "       \'a': [ promptline#slices#host(), promptline#slices#user() ],
 "
 " to disable powerline symbols
-" `let g:promptline_powerline_symbols = 0`
+" let g:promptline_powerline_symbols = 1
 
 """"""""""""""""""""""""""""""
 " => Security
