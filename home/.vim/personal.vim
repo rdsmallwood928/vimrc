@@ -98,6 +98,12 @@ match ExtraWhitespace /\s\+$/
 
 
 """"""""""""""""""""""""""""""
+" => Plugin Mappings
+""""""""""""""""""""""""""""""
+nnoremap <Leader>. :NERDTreeToggle<CR>
+
+
+""""""""""""""""""""""""""""""
 " => Gundo
 """"""""""""""""""""""""""""""
 nnoremap <F3> :GundoToggle<CR>
