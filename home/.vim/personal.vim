@@ -101,6 +101,7 @@ match ExtraWhitespace /\s\+$/
 " => Plugin Mappings
 """"""""""""""""""""""""""""""
 nnoremap <Leader>. :NERDTreeToggle<CR>
+nnoremap <Leader>, :Gblame<CR>
 
 
 """"""""""""""""""""""""""""""
