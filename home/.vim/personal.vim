@@ -102,6 +102,7 @@ match ExtraWhitespace /\s\+$/
 """"""""""""""""""""""""""""""
 nnoremap <Leader>. :NERDTreeToggle<CR>
 nnoremap <Leader>, :Gblame<CR>
+nnoremap <Leader>p :CoffeeCompile<CR>
 
 
 """"""""""""""""""""""""""""""
