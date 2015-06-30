@@ -110,6 +110,10 @@ nnoremap <Leader>p :CoffeeCompile<CR>
 """"""""""""""""""""""""""""""
 nnoremap <F3> :GundoToggle<CR>
 
+""""""""""""""""""""""""""""""
+" => NERDTree
+""""""""""""""""""""""""""""""
+let g:NERDTreeShowHidden=1
 
 """"""""""""""""""""""""""""""
 " => Super Tab plugin
