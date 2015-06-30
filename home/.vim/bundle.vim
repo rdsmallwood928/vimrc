@@ -21,6 +21,8 @@ Bundle 'vim-scripts/bash-support.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'groenewege/vim-less'
+Bundle 'ekalinin/Dockerfile.vim'
 
 "Other tools
 Bundle 'vim-scripts/bufexplorer.zip'
