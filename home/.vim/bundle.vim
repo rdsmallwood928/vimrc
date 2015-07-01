@@ -23,6 +23,7 @@ Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'fatih/vim-go'
 
 "Other tools
 Bundle 'vim-scripts/bufexplorer.zip'
