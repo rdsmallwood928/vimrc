@@ -40,6 +40,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
 Bundle 'edkolev/promptline.vim'
 Bundle 'rking/ag.vim'
+Bundle 'szw/vim-tags'
 
 Bundle 'scrooloose/nerdtree'
 Bundle 'Xuyuanp/nerdtree-git-plugin'
