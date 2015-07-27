@@ -35,8 +35,6 @@ imap jj <esc>
 "have further <Tab>s cycle through the possibilities:
 set wildmode=list:longest
 
-syntax on
-
 "allow Ctrl-A and Ctrl-X to work on all variants
 set nrformats=octal,hex,alpha
 
@@ -62,6 +60,7 @@ set ttimeoutlen=100
 filetype plugin on
 filetype indent on
 syntax on
+set diffopt=vertical
 
 
 """"""""""""""""""""""""""""""
@@ -103,6 +102,7 @@ match ExtraWhitespace /\s\+$/
 nnoremap <Leader>. :NERDTreeToggle<CR>
 nnoremap <Leader>, :Gblame<CR>
 nnoremap <Leader>p :CoffeeCompile<CR>
+nnoremap <Leader>d :Gdiff<CR>
 
 
 """"""""""""""""""""""""""""""
