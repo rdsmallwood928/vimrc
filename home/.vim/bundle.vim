@@ -47,5 +47,6 @@ Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'airblade/vim-rooter'
 
 filetype plugin indent on
