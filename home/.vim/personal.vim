@@ -22,6 +22,7 @@ set showcmd " show command characters
 set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
 set backspace=2
+set noswapfile
 
 " Don't auto format comments when hitting <enter> in insert mode
 " or <o>/<O> in normal mode
@@ -103,6 +104,7 @@ nnoremap <Leader>. :NERDTreeToggle<CR>
 nnoremap <Leader>, :Gblame<CR>
 nnoremap <Leader>p :CoffeeCompile<CR>
 nnoremap <Leader>d :Gdiff<CR>
+nnoremap <Leader>s :Gstatus<CR>
 
 
 """"""""""""""""""""""""""""""
