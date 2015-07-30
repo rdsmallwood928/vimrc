@@ -202,8 +202,8 @@ map <leader>fw :w !sudo tee %<cr><cr>:e<cr>
 map <leader>e :e <c-r>=expand('%:p:h')<cr>/
 
 "Buffer naviation
-map <M-Left> :bprevious<cr>
-map <M-Right> :bnext<cr>
+nnoremap <C-A> :bprevious<CR>
+nnoremap <C-T> :bnext<CR>
 
 "Buffer Explorer
 nnoremap <F5> :BufExplorer<cr>
