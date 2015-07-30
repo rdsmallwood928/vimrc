@@ -10,6 +10,7 @@ source ~/.vim/bundle.vim
 """"""""""""""""""""""""""""""
 "follow the leader
 let mapleader=";"
+let vimDir = '$HOME/.vim'
 
 set mouse=a
 set modeline
@@ -96,7 +97,15 @@ map <leader>t8 :setlocal shiftwidth=8<cr>
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
 """"""""""""""""""""""""""""""
 " => Plugin Mappings
 """"""""""""""""""""""""""""""
