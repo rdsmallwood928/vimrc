@@ -22,6 +22,7 @@ set showcmd " show command characters
 set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
 set backspace=2
+set noswapfile
 
 " Don't auto format comments when hitting <enter> in insert mode
 " or <o>/<O> in normal mode
@@ -101,14 +102,11 @@ match ExtraWhitespace /\s\+$/
 """"""""""""""""""""""""""""""
 nnoremap <Leader>. :NERDTreeToggle<CR>
 nnoremap <Leader>, :Gblame<CR>
-nnoremap <Leader>p :CoffeeCompile<CR>
+nnoremap <Leader>cc :CoffeeCompile<CR>
 nnoremap <Leader>d :Gdiff<CR>
-
-
-""""""""""""""""""""""""""""""
-" => Gundo
-""""""""""""""""""""""""""""""
-nnoremap <F3> :GundoToggle<CR>
+nnoremap <Leader>s :Gstatus<CR>
+nnoremap <Leader>c :Gcommit<CR>
+nnoremap <Leader>g :GundoToggle<CR>
 
 """"""""""""""""""""""""""""""
 " => NERDTree
@@ -238,10 +236,10 @@ map <C-c> "+y<CR>
 nnoremap <F9> :set wrap!<cr>
 
 " Easier moving in tabs and windows
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-map <C-L> <C-W>l<C-W>_
-map <C-H> <C-W>h<C-W>_
+nnoremap <C-J> <C-W>j<CR>
+nnoremap <C-K> <C-W>k<CR>
+nnoremap <C-L> <C-W>l<CR>
+nnoremap <C-H> <C-W>h<CR>
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
@@ -274,9 +272,9 @@ set completeopt=menu,longest,preview
 """"""""""""""""""""""""""""""
 " => Cope (:h cope)
 """"""""""""""""""""""""""""""
-map <leader>cc :botright cope<cr>
-map <leader>cn :cn<cr>
-map <leader>cp :cp<cr>
+"map <leader>cc :botright cope<cr>
+"map <leader>cn :cn<cr>
+"map <leader>cp :cp<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -316,7 +314,7 @@ unlet tmp
 """"""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
-set guifont=Liberation\ Mono\ for\ Powerline\ 10 
+set guifont=Liberation\ Mono\ for\ Powerline\ 10
 set encoding=utf-8
 
 if !exists('g:airline_symbols')
@@ -366,6 +364,11 @@ let g:promptline_preset = {
 "
 " to disable powerline symbols
 " let g:promptline_powerline_symbols = 1
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 """"""""""""""""""""""""""""""
 " => Security
