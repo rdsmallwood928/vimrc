@@ -10,6 +10,7 @@ source ~/.vim/bundle.vim
 """"""""""""""""""""""""""""""
 "follow the leader
 let mapleader=";"
+let vimDir = '$HOME/.vim'
 
 set mouse=a
 set modeline
@@ -96,21 +97,25 @@ map <leader>t8 :setlocal shiftwidth=8<cr>
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
 """"""""""""""""""""""""""""""
 " => Plugin Mappings
 """"""""""""""""""""""""""""""
 nnoremap <Leader>. :NERDTreeToggle<CR>
 nnoremap <Leader>, :Gblame<CR>
-nnoremap <Leader>p :CoffeeCompile<CR>
+nnoremap <Leader>cc :CoffeeCompile<CR>
 nnoremap <Leader>d :Gdiff<CR>
 nnoremap <Leader>s :Gstatus<CR>
-
-
-""""""""""""""""""""""""""""""
-" => Gundo
-""""""""""""""""""""""""""""""
-nnoremap <F3> :GundoToggle<CR>
+nnoremap <Leader>c :Gcommit<CR>
+nnoremap <Leader>g :GundoToggle<CR>
 
 """"""""""""""""""""""""""""""
 " => NERDTree
@@ -206,8 +211,8 @@ map <leader>fw :w !sudo tee %<cr><cr>:e<cr>
 map <leader>e :e <c-r>=expand('%:p:h')<cr>/
 
 "Buffer naviation
-map <M-Left> :bprevious<cr>
-map <M-Right> :bnext<cr>
+nnoremap <C-A> :bprevious<CR>
+nnoremap <C-T> :bnext<CR>
 
 "Buffer Explorer
 nnoremap <F5> :BufExplorer<cr>
@@ -240,10 +245,10 @@ map <C-c> "+y<CR>
 nnoremap <F9> :set wrap!<cr>
 
 " Easier moving in tabs and windows
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-map <C-L> <C-W>l<C-W>_
-map <C-H> <C-W>h<C-W>_
+nnoremap <C-J> <C-W>j<CR>
+nnoremap <C-K> <C-W>k<CR>
+nnoremap <C-L> <C-W>l<CR>
+nnoremap <C-H> <C-W>h<CR>
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
@@ -276,9 +281,9 @@ set completeopt=menu,longest,preview
 """"""""""""""""""""""""""""""
 " => Cope (:h cope)
 """"""""""""""""""""""""""""""
-map <leader>cc :botright cope<cr>
-map <leader>cn :cn<cr>
-map <leader>cp :cp<cr>
+"map <leader>cc :botright cope<cr>
+"map <leader>cn :cn<cr>
+"map <leader>cp :cp<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -318,7 +323,7 @@ unlet tmp
 """"""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
-set guifont=Liberation\ Mono\ for\ Powerline\ 10 
+set guifont=Liberation\ Mono\ for\ Powerline\ 10
 set encoding=utf-8
 
 if !exists('g:airline_symbols')
@@ -368,6 +373,11 @@ let g:promptline_preset = {
 "
 " to disable powerline symbols
 " let g:promptline_powerline_symbols = 1
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 """"""""""""""""""""""""""""""
 " => Security
