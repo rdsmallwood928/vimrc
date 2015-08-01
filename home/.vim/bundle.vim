@@ -48,5 +48,6 @@ Bundle 'Shougo/neocomplcache.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'airblade/vim-rooter'
+Bundle 'christoomey/vim-tmux-navigator'
 
 filetype plugin indent on
