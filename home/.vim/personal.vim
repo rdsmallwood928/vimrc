@@ -106,6 +106,10 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
+
+" Search and replace word under cursor
+nnoremap <leader>sr :%s/\<<c-r><c-w>\>//<left>
+
 """"""""""""""""""""""""""""""
 " => Plugin Mappings
 """"""""""""""""""""""""""""""
@@ -116,6 +120,7 @@ nnoremap <Leader>d :Gdiff<CR>
 nnoremap <Leader>s :Gstatus<CR>
 nnoremap <Leader>c :Gcommit<CR>
 nnoremap <Leader>g :GundoToggle<CR>
+nnoremap <leader>tt :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""
 " => NERDTree
