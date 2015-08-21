@@ -110,7 +110,7 @@ endif
 " => Plugin Mappings
 """"""""""""""""""""""""""""""
 nnoremap <Leader>. :NERDTreeToggle<CR>
-nnoremap <Leader>, :Gblame<CR>
+nnoremap <Leader>b :Gblame<CR>
 nnoremap <Leader>cc :CoffeeCompile<CR>
 nnoremap <Leader>d :Gdiff<CR>
 nnoremap <Leader>s :Gstatus<CR>
