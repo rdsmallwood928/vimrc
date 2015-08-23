@@ -49,5 +49,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'airblade/vim-rooter'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'dansomething/vim-eclime'
 
 filetype plugin indent on
