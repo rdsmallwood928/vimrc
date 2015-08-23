@@ -106,16 +106,25 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
+
+" Search and replace word under cursor
+nnoremap <leader>sr :%s/\<<c-r><c-w>\>//<left>
+
 """"""""""""""""""""""""""""""
 " => Plugin Mappings
 """"""""""""""""""""""""""""""
 nnoremap <Leader>. :NERDTreeToggle<CR>
-nnoremap <Leader>, :Gblame<CR>
+nnoremap <Leader>b :Gblame<CR>
 nnoremap <Leader>cc :CoffeeCompile<CR>
 nnoremap <Leader>d :Gdiff<CR>
 nnoremap <Leader>s :Gstatus<CR>
 nnoremap <Leader>c :Gcommit<CR>
 nnoremap <Leader>g :GundoToggle<CR>
+nnoremap <leader>tt :TagbarToggle<CR>
+nnoremap <leader>as :AgFromSearch<CR>
+nnoremap <leader>ag :Ag!<space>
+vnoremap <leader>ag "xy :Ag! "<c-r>x"
+nnoremap <leader>sag :Ag! <c-r><c-w>
 
 """"""""""""""""""""""""""""""
 " => NERDTree
@@ -136,7 +145,6 @@ let g:SuperTabContextDefaultCompletionType="<c-x><c-p>"
 """"""""""""""""""""""""""""""
 "tags - directory of current file, then search up from working dir
 set tags=./tags,tags;
-nnoremap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_left=1
 let g:tagbar_compact=1
 let g:tagbar_autoclose=1
@@ -304,8 +312,6 @@ endif
 """"""""""""""""""""""""""""""
 " => Grep & Search
 """"""""""""""""""""""""""""""
-"let Grep_Skip_Dirs = 'RCS CVS SCCS .svn .git'
-"set grepprg=/bin/grep\ -nH
 " Try do use the ack program when available
 let tmp = ''
 for i in ['ack', 'ack-grep']
@@ -317,6 +323,21 @@ for i in ['ack', 'ack-grep']
 endfor
 unlet tmp
 
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" ---------------
+" Ag.vim
+" ---------------
+let g:ag_highlight = 1
 
 """"""""""""""""""""""""""""""
 " => Powerline / Airline
