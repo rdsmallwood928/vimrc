@@ -76,6 +76,10 @@ if has('gui_running')
   "set guifont=Source\ Code\ Pro:h14
 endif
 
+""""""""""""""""""""""""""""""
+" => Syntastic
+""""""""""""""""""""""""""""""
+let g:syntastic_javascript_checkers = ['jshint']
 
 """"""""""""""""""""""""""""""
 " =>Tabbing and indenting
