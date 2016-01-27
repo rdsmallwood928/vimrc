@@ -31,6 +31,7 @@ Bundle 'tmatilai/gitolite.vim'
 Bundle 'ervandew/supertab'
 Bundle 'sickill/vim-pasta'
 Bundle 'sjl/gundo.vim'
+Bundle 'easymotion/vim-easymotion'
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
 endif
