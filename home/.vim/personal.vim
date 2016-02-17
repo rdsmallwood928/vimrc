@@ -149,7 +149,6 @@ let g:SuperTabContextDefaultCompletionType="<c-x><c-p>"
 """"""""""""""""""""""""""""""
 "tags - directory of current file, then search up from working dir
 set tags=./tags,tags;
-let g:tagbar_left=1
 let g:tagbar_compact=1
 let g:tagbar_autoclose=1
 
