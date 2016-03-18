@@ -51,5 +51,6 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'airblade/vim-rooter'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'dansomething/vim-eclim'
+Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on
