@@ -144,6 +144,10 @@ let g:NERDTreeShowHidden=1
 let g:SuperTabDefaultCompletion="context"
 let g:SuperTabContextDefaultCompletionType="<c-x><c-p>"
 
+""""""""""""""""""""""""""""""
+" => Rainbow
+""""""""""""""""""""""""""""""
+let g:rainbow_active=1
 
 """"""""""""""""""""""""""""""
 " => TagBar
