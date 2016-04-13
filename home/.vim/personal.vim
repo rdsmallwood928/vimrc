@@ -65,7 +65,6 @@ filetype indent on
 syntax on
 set diffopt=vertical
 
-
 """"""""""""""""""""""""""""""
 " => Colors and Fonts
 """"""""""""""""""""""""""""""
@@ -76,11 +75,6 @@ colorscheme solarized
 if has('gui_running')
   "set guifont=Source\ Code\ Pro:h14
 endif
-
-""""""""""""""""""""""""""""""
-" => Syntastic
-""""""""""""""""""""""""""""""
-let g:syntastic_javascript_checkers = ['jshint']
 
 """"""""""""""""""""""""""""""
 " =>Tabbing and indenting
@@ -130,6 +124,17 @@ nnoremap <leader>as :AgFromSearch<CR>
 nnoremap <leader>ag :Ag!<space>
 vnoremap <leader>ag "xy :Ag! "<c-r>x"
 nnoremap <leader>sag :Ag! <c-r><c-w>
+
+""""""""""""""""""""""""""""""
+" => Syntastic
+""""""""""""""""""""""""""""""
+let g:syntastic_javascript_checkers = ['jshint']
+
+
+""""""""""""""""""""""""""""""
+" => vim-json
+""""""""""""""""""""""""""""""
+let g:sh_indent_case_labels=1 "disable auto conceal of quotes, etc in json files
 
 """"""""""""""""""""""""""""""
 " => NERDTree
