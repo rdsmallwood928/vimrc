@@ -134,7 +134,7 @@ let g:syntastic_javascript_checkers = ['jshint']
 """"""""""""""""""""""""""""""
 " => vim-json
 """"""""""""""""""""""""""""""
-let g:sh_indent_case_labels=1 "disable auto conceal of quotes, etc in json files
+let g:vim_json_syntax_conceal=0 "disable auto conceal of quotes, etc in json files
 
 """"""""""""""""""""""""""""""
 " => NERDTree
