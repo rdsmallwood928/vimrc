@@ -65,7 +65,6 @@ filetype indent on
 syntax on
 set diffopt=vertical
 
-
 """"""""""""""""""""""""""""""
 " => Colors and Fonts
 """"""""""""""""""""""""""""""
@@ -76,11 +75,6 @@ colorscheme solarized
 if has('gui_running')
   "set guifont=Source\ Code\ Pro:h14
 endif
-
-""""""""""""""""""""""""""""""
-" => Syntastic
-""""""""""""""""""""""""""""""
-let g:syntastic_javascript_checkers = ['jshint']
 
 """"""""""""""""""""""""""""""
 " =>Tabbing and indenting
@@ -119,17 +113,38 @@ nnoremap <leader>sr :%s/\<<c-r><c-w>\>//<left>
 " => Plugin Mappings
 """"""""""""""""""""""""""""""
 nnoremap <Leader>. :NERDTreeToggle<CR>
+nnoremap <leader>tt :TagbarToggle<CR>
+nnoremap <Leader>gu :GundoToggle<CR>
+
+"Git Plugin Mappings
 nnoremap <Leader>b :Gblame<CR>
 nnoremap <Leader>cc :CoffeeCompile<CR>
 nnoremap <Leader>d :Gdiff<CR>
 nnoremap <Leader>s :Gstatus<CR>
 nnoremap <Leader>c :Gcommit<CR>
 nnoremap <Leader>g :GundoToggle<CR>
-nnoremap <leader>tt :TagbarToggle<CR>
+
+"Silver Searcher
 nnoremap <leader>as :AgFromSearch<CR>
 nnoremap <leader>ag :Ag!<space>
-vnoremap <leader>ag "xy :Ag! "<c-r>x"
 nnoremap <leader>sag :Ag! <c-r><c-w>
+
+"Eclim
+nnoremap <leader>vi :JavaImportOrganize<CR>
+nnoremap <leader>vr :Java %<CR>
+
+"Misc
+nnoremap <Leader>cc :CoffeeCompile<CR>
+""""""""""""""""""""""""""""""
+" => Syntastic
+""""""""""""""""""""""""""""""
+let g:syntastic_javascript_checkers = ['jshint']
+
+
+""""""""""""""""""""""""""""""
+" => vim-json
+""""""""""""""""""""""""""""""
+let g:vim_json_syntax_conceal=0 "disable auto conceal of quotes, etc in json files
 
 """"""""""""""""""""""""""""""
 " => NERDTree
@@ -144,6 +159,10 @@ let g:NERDTreeShowHidden=1
 let g:SuperTabDefaultCompletion="context"
 let g:SuperTabContextDefaultCompletionType="<c-x><c-p>"
 
+""""""""""""""""""""""""""""""
+" => Rainbow
+""""""""""""""""""""""""""""""
+let g:rainbow_active=1
 
 """"""""""""""""""""""""""""""
 " => TagBar
@@ -153,6 +172,11 @@ set tags=./tags,tags;
 let g:tagbar_compact=1
 let g:tagbar_autoclose=1
 
+
+""""""""""""""""""""""""""""""
+" => Eclim
+""""""""""""""""""""""""""""""
+let g:EclimCompletionMethod = 'omnifunc'
 
 """"""""""""""""""""""""""""""
 " => Searching
@@ -198,7 +222,7 @@ set hidden
 map <leader>n :e ~/notes<cr>
 
 "Quickly open a buffer for the VimRC
-map <leader>v :e ~/.vim/personal.vim<cr>
+map <leader>.. :e ~/.vim/personal.vim<cr>
 "and reload it when edited
 autocmd! bufwritepost personal.vim source ~/.vim/personal.vim
 
@@ -224,7 +248,7 @@ map <leader>e :e <c-r>=expand('%:p:h')<cr>/
 
 "Buffer naviation
 nnoremap <C-A> :bprevious<CR>
-nnoremap <C-T> :bnext<CR>
+nnoremap <C-S> :bnext<CR>
 
 "Buffer Explorer
 nnoremap <F5> :BufExplorer<cr>
@@ -288,15 +312,6 @@ set completeopt=menu,longest,preview
 "inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 "inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
 "inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
-
-
-""""""""""""""""""""""""""""""
-" => Cope (:h cope)
-""""""""""""""""""""""""""""""
-"map <leader>cc :botright cope<cr>
-"map <leader>cn :cn<cr>
-"map <leader>cp :cp<cr>
-
 
 """"""""""""""""""""""""""""""
 " => Auto Commands
@@ -413,4 +428,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 """"""""""""""""""""""""""""""
 set secure
 
-" vim: set ft=vim ts=2 sw=2 tw=78 :
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
