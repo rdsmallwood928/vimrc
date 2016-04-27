@@ -24,6 +24,9 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'fatih/vim-go'
+Bundle 'luochen1990/rainbow'
+Bundle 'Yggdroot/indentLine'
+Bundle 'elzr/vim-json'
 
 "Other tools
 Bundle 'vim-scripts/bufexplorer.zip'

@@ -147,6 +147,17 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:vim_json_syntax_conceal=0 "disable auto conceal of quotes, etc in json files
 
 """"""""""""""""""""""""""""""
+" => Syntastic
+""""""""""""""""""""""""""""""
+let g:syntastic_javascript_checkers = ['jshint']
+
+
+""""""""""""""""""""""""""""""
+" => vim-json
+""""""""""""""""""""""""""""""
+let g:vim_json_syntax_conceal=0 "disable auto conceal of quotes, etc in json files
+
+""""""""""""""""""""""""""""""
 " => NERDTree
 """"""""""""""""""""""""""""""
 let g:NERDTreeShowHidden=1
