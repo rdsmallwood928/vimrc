@@ -133,8 +133,14 @@ nnoremap <leader>sag :Ag! <c-r><c-w>
 nnoremap <leader>vi :JavaImportOrganize<CR>
 nnoremap <leader>vr :Java %<CR>
 
+<<<<<<< Updated upstream
 "Misc
 nnoremap <Leader>cc :CoffeeCompile<CR>
+=======
+"Ctags
+nnoremap <C-[> :pop <CR>
+
+>>>>>>> Stashed changes
 """"""""""""""""""""""""""""""
 " => Syntastic
 """"""""""""""""""""""""""""""
