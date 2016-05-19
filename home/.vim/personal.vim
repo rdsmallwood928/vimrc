@@ -1,4 +1,3 @@
-"
 """""""""""""""""""""""""""""
 " => Bundles
 """"""""""""""""""""""""""""""
@@ -112,17 +111,17 @@ nnoremap <leader>sr :%s/\<<c-r><c-w>\>//<left>
 """"""""""""""""""""""""""""""
 " => Plugin Mappings
 """"""""""""""""""""""""""""""
-nnoremap <Leader>. :NERDTreeToggle<CR>
+nnoremap <leader>. :NERDTreeToggle<CR>
 nnoremap <leader>tt :TagbarToggle<CR>
-nnoremap <Leader>gu :GundoToggle<CR>
+nnoremap <leader>gu :GundoToggle<CR>
 
 "Git Plugin Mappings
-nnoremap <Leader>b :Gblame<CR>
-nnoremap <Leader>cc :CoffeeCompile<CR>
-nnoremap <Leader>d :Gdiff<CR>
-nnoremap <Leader>s :Gstatus<CR>
-nnoremap <Leader>c :Gcommit<CR>
-nnoremap <Leader>g :GundoToggle<CR>
+nnoremap <leader>b :Gblame<CR>
+nnoremap <leader>cc :CoffeeCompile<CR>
+nnoremap <leader>d :Gdiff<CR>
+nnoremap <leader>s :Gstatus<CR>
+nnoremap <leader>c :Gcommit<CR>
+nnoremap <leader>g :GundoToggle<CR>
 
 "Silver Searcher
 nnoremap <leader>as :AgFromSearch<CR>
@@ -132,9 +131,6 @@ nnoremap <leader>sag :Ag! <c-r><c-w>
 "Eclim
 nnoremap <leader>vi :JavaImportOrganize<CR>
 nnoremap <leader>vr :Java %<CR>
-
-"Ctags
-nnoremap <C-[> :pop <CR>
 
 """"""""""""""""""""""""""""""
 " => Syntastic
@@ -307,7 +303,7 @@ function! AppendModeline()
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
 endfunction
-nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+nnoremap <silent> <leader>ml :call AppendModeline()<CR>
 
 
 """"""""""""""""""""""""""""""
