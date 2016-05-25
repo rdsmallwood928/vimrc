@@ -109,6 +109,13 @@ endif
 nnoremap <leader>sr :%s/\<<c-r><c-w>\>//<left>
 
 """"""""""""""""""""""""""""""
+" => Splits
+""""""""""""""""""""""""""""""
+nnoremap <leader>- :sp<CR>
+nnoremap <leader>= :vsp<CR>
+
+
+""""""""""""""""""""""""""""""
 " => Plugin Mappings
 """"""""""""""""""""""""""""""
 nnoremap <leader>. :NERDTreeToggle<CR>
