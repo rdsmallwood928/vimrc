@@ -47,6 +47,7 @@ Bundle 'rking/ag.vim'
 Bundle 'szw/vim-tags'
 
 Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-vinegar'
 Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'tpope/vim-surround'
