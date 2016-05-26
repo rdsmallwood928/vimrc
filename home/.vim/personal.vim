@@ -139,6 +139,11 @@ nnoremap <leader>sag :Ag! <c-r><c-w>
 nnoremap <leader>vi :JavaImportOrganize<CR>
 nnoremap <leader>vr :Java %<CR>
 
+"Vim Plug
+nnoremap <leader>pi :call PluginReloadAndRun("PlugInstall")<CR>
+nnoremap <leader>pu :call PluginReloadAndRun("PlugUpdate")<CR>
+nnoremap <leader>pc :call PluginReloadAndRun("PlugClean")<CR>
+
 """"""""""""""""""""""""""""""
 " => Syntastic
 """"""""""""""""""""""""""""""
@@ -192,6 +197,21 @@ let g:tagbar_autoclose=1
 " => Eclim
 """"""""""""""""""""""""""""""
 let g:EclimCompletionMethod = 'omnifunc'
+
+""""""""""""""""""""""""""""""
+" => vim-plug
+""""""""""""""""""""""""""""""
+command! ReloadVimPlug source ~/.vim/vim-plug.vim
+function! PluginReloadAndRun(command)
+  :ReloadVimPlug
+  execute a:command
+endfunction
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
 """"""""""""""""""""""""""""""
 " => Searching
