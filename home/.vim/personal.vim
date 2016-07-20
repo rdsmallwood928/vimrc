@@ -25,6 +25,7 @@ set history=1000 "let's have a litle more of it
 set cursorline "highlight the current line
 set backspace=2
 set noswapfile
+set clipboard=unnamed
 
 " Don't auto format comments when hitting <enter> in insert mode
 " or <o>/<O> in normal mode
