@@ -1,4 +1,3 @@
-"
 """""""""""""""""""""""""""""
 " => Bundles
 """"""""""""""""""""""""""""""
@@ -111,19 +110,26 @@ endif
 nnoremap <leader>sr :%s/\<<c-r><c-w>\>//<left>
 
 """"""""""""""""""""""""""""""
+" => Splits
+""""""""""""""""""""""""""""""
+nnoremap <leader>- :sp<CR>
+nnoremap <leader>= :vsp<CR>
+
+
+""""""""""""""""""""""""""""""
 " => Plugin Mappings
 """"""""""""""""""""""""""""""
-nnoremap <Leader>. :NERDTreeToggle<CR>
+nnoremap <leader>. :NERDTreeToggle<CR>
 nnoremap <leader>tt :TagbarToggle<CR>
-nnoremap <Leader>gu :GundoToggle<CR>
+nnoremap <leader>gu :GundoToggle<CR>
 
 "Git Plugin Mappings
-nnoremap <Leader>b :Gblame<CR>
-nnoremap <Leader>cc :CoffeeCompile<CR>
-nnoremap <Leader>d :Gdiff<CR>
-nnoremap <Leader>s :Gstatus<CR>
-nnoremap <Leader>c :Gcommit<CR>
-nnoremap <Leader>g :GundoToggle<CR>
+nnoremap <leader>b :Gblame<CR>
+nnoremap <leader>cc :CoffeeCompile<CR>
+nnoremap <leader>d :Gdiff<CR>
+nnoremap <leader>s :Gstatus<CR>
+nnoremap <leader>c :Gcommit<CR>
+nnoremap <leader>g :GundoToggle<CR>
 
 "Silver Searcher
 nnoremap <leader>as :AgFromSearch<CR>
@@ -134,8 +140,11 @@ nnoremap <leader>sag :Ag! <c-r><c-w>
 nnoremap <leader>vi :JavaImportOrganize<CR>
 nnoremap <leader>vr :Java %<CR>
 
-"Misc
-nnoremap <Leader>cc :CoffeeCompile<CR>
+"Vim Plug
+nnoremap <leader>pi :call PluginReloadAndRun("PlugInstall")<CR>
+nnoremap <leader>pu :call PluginReloadAndRun("PlugUpdate")<CR>
+nnoremap <leader>pc :call PluginReloadAndRun("PlugClean")<CR>
+
 """"""""""""""""""""""""""""""
 " => Syntastic
 """"""""""""""""""""""""""""""
@@ -189,6 +198,21 @@ let g:tagbar_autoclose=1
 " => Eclim
 """"""""""""""""""""""""""""""
 let g:EclimCompletionMethod = 'omnifunc'
+
+""""""""""""""""""""""""""""""
+" => vim-plug
+""""""""""""""""""""""""""""""
+command! ReloadVimPlug source ~/.vim/vim-plug.vim
+function! PluginReloadAndRun(command)
+  :ReloadVimPlug
+  execute a:command
+endfunction
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
 """"""""""""""""""""""""""""""
 " => Searching
@@ -307,7 +331,7 @@ function! AppendModeline()
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
 endfunction
-nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+nnoremap <silent> <leader>ml :call AppendModeline()<CR>
 
 
 """"""""""""""""""""""""""""""
