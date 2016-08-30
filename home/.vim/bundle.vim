@@ -3,8 +3,6 @@ filetype off
 
 call plug#begin('~/.vim/bundle')
 
-Plug 'gmarik/vundle'
-
 "Colorschemes
 Plug 'altercation/vim-colors-solarized'
 
