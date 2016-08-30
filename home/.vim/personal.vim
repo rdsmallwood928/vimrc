@@ -80,7 +80,6 @@ endif
 " =>Tabbing and indenting
 """"""""""""""""""""""""""""""
 set autoindent
-set smarttab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2 " if it looks like a tab, we can delete it like a tab
