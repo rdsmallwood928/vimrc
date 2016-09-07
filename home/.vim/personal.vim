@@ -200,7 +200,6 @@ function! Rack(args)
   endif
   execute 'Ack ' . a:args  . ' ' . l:gitDir
 endfunction
-command! -bang -nargs=* -complete=file Rack call Rack(<q-args>)
 
 """"""""""""""""""""""""""""""
 " => vim-plug
