@@ -7,7 +7,6 @@ call plug#begin('~/.vim/bundle')
 Plug 'altercation/vim-colors-solarized'
 
 "Git stuff
-Plug 'motemen/git-vim'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'int3/vim-extradite'
@@ -36,7 +35,6 @@ Plug 'easymotion/vim-easymotion'
 if executable('ctags')
   Plug 'majutsushi/tagbar'
 endif
-Plug 'edsono/vim-matchit'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
@@ -47,7 +45,6 @@ Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'Shougo/neocomplcache.vim'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
