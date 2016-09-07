@@ -16,8 +16,6 @@ Plug 'mhinz/vim-signify'
 Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/bash-support.vim'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'groenewege/vim-less'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
