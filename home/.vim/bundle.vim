@@ -42,7 +42,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'edkolev/promptline.vim'
 Plug 'szw/vim-tags'
-Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim', { 'on': 'Ag' }
 
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'

@@ -131,7 +131,7 @@ nnoremap <leader>c :Gcommit<CR>
 nnoremap <leader>g :GundoToggle<CR>
 
 "Silver Searcher
-nnoremap <leader>ag :Rack<space>
+nnoremap <leader>ag :Ag!<space>
 
 "Eclim
 nnoremap <leader>vi :JavaImportOrganize<CR>
@@ -185,6 +185,48 @@ let g:tagbar_autoclose=1
 """"""""""""""""""""""""""""""
 let g:EclimCompletionMethod = 'omnifunc'
 
+"""""""""""""""""""""""""""""
+" => ag.vim
+"""""""""""""""""""""""""""""
+let g:ag_highlight = 1
+
+""""""""""""""""""""""""""""""
+" => Powerline / Airline
+""""""""""""""""""""""""""""""
+let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
+set guifont=Liberation\ Mono\ for\ Powerline\ 10
+set encoding=utf-8
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+"unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" sections (a, b, c, x, y, z, warn) are optional
+let g:promptline_preset = {
+  \'a' : [ promptline#slices#host() ],
+  \'b' : [ promptline#slices#user() ],
+  \'c' : [ promptline#slices#cwd() ],
+  \'x' : [ promptline#slices#python_virtualenv() ],
+  \'y' : [ "$(echo '\n')", promptline#slices#vcs_branch() ],
+  \'warn' : [ promptline#slices#last_exit_code() ]}
+
+
+
 """"""""""""""""""""""""""""""
 " => ack.vim
 """"""""""""""""""""""""""""""
@@ -200,6 +242,7 @@ function! Rack(args)
   endif
   execute 'Ack ' . a:args  . ' ' . l:gitDir
 endfunction
+command! -bang -nargs=* -complete=file Rack call Rack(<q-args>)
 
 """"""""""""""""""""""""""""""
 " => vim-plug
@@ -377,50 +420,6 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
-
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>
-
-" ---------------
-" Ag.vim
-" ---------------
-let g:ag_highlight = 1
-
-""""""""""""""""""""""""""""""
-" => Powerline / Airline
-""""""""""""""""""""""""""""""
-let g:airline_powerline_fonts = 1
-let g:Powerline_symbols = 'fancy'
-set guifont=Liberation\ Mono\ for\ Powerline\ 10
-set encoding=utf-8
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-"unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" sections (a, b, c, x, y, z, warn) are optional
-let g:promptline_preset = {
-  \'a' : [ promptline#slices#host() ],
-  \'b' : [ promptline#slices#user() ],
-  \'c' : [ promptline#slices#cwd() ],
-  \'x' : [ promptline#slices#python_virtualenv() ],
-  \'y' : [ "$(echo '\n')", promptline#slices#vcs_branch() ],
-  \'warn' : [ promptline#slices#last_exit_code() ]}
 
 " available slices:
 "
