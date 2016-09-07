@@ -15,8 +15,6 @@ Plug 'mhinz/vim-signify'
 "Syntax etc.
 Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/bash-support.vim'
-Plug 'tpope/vim-markdown'
-Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'groenewege/vim-less'
 Plug 'ekalinin/Dockerfile.vim'

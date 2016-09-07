@@ -330,6 +330,9 @@ endfunction
 nnoremap <F8> :call TogglePaste()<cr>
 inoremap <F8> <esc>:call TogglePaste()<cr>a
 
+"mark markdown files as such
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 " Use CTRL-C to copy visual selection
 map <C-c> "+y<CR>
 
