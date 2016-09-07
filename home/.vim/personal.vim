@@ -120,7 +120,6 @@ nnoremap <leader>= :vsp<CR>
 """"""""""""""""""""""""""""""
 nnoremap <leader>. :NERDTreeToggle<CR>
 nnoremap <leader>tt :TagbarToggle<CR>
-nnoremap <leader>gu :GundoToggle<CR>
 
 "Git Plugin Mappings
 nnoremap <leader>b :Gblame<CR>
@@ -128,7 +127,11 @@ nnoremap <leader>cc :CoffeeCompile<CR>
 nnoremap <leader>d :Gdiff<CR>
 nnoremap <leader>s :Gstatus<CR>
 nnoremap <leader>c :Gcommit<CR>
-nnoremap <leader>g :GundoToggle<CR>
+nnoremap <leader>h :Extradite<CR>
+
+
+"Gundo
+nnoremap <leader>u :GundoToggle<CR>
 
 "Silver Searcher
 nnoremap <leader>ag :Ag!<space>
