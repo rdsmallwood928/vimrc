@@ -132,9 +132,7 @@ nnoremap <leader>c :Gcommit<CR>
 nnoremap <leader>g :GundoToggle<CR>
 
 "Silver Searcher
-nnoremap <leader>as :AgFromSearch<CR>
-nnoremap <leader>ag :Ag!<space>
-nnoremap <leader>sag :Ag! <c-r><c-w>
+nnoremap <leader>ag :Rack<space>
 
 "Eclim
 nnoremap <leader>vi :JavaImportOrganize<CR>
@@ -144,17 +142,6 @@ nnoremap <leader>vr :Java %<CR>
 nnoremap <leader>pi :call PluginReloadAndRun("PlugInstall")<CR>
 nnoremap <leader>pu :call PluginReloadAndRun("PlugUpdate")<CR>
 nnoremap <leader>pc :call PluginReloadAndRun("PlugClean")<CR>
-
-""""""""""""""""""""""""""""""
-" => Syntastic
-""""""""""""""""""""""""""""""
-let g:syntastic_javascript_checkers = ['jshint']
-
-
-""""""""""""""""""""""""""""""
-" => vim-json
-""""""""""""""""""""""""""""""
-let g:vim_json_syntax_conceal=0 "disable auto conceal of quotes, etc in json files
 
 """"""""""""""""""""""""""""""
 " => Syntastic
@@ -198,6 +185,23 @@ let g:tagbar_autoclose=1
 " => Eclim
 """"""""""""""""""""""""""""""
 let g:EclimCompletionMethod = 'omnifunc'
+
+""""""""""""""""""""""""""""""
+" => ack.vim
+""""""""""""""""""""""""""""""
+if executable(“ag”)
+	let g:ackprg=“ag –nocolor –nogroup –column”
+endif
+
+function! Rack(args)
+  let l:gitDir = system(“git rev-parse –show-toplevel”)
+  if l:gitDir =~ “Not a git repository”
+    execute ‘Ack ’ . a:args
+    return
+  endif
+  execute 'Ack ’ . a:args  .’ ’ . l:gitDir
+endfunction
+command! -bang -nargs=* -complete=file Rack call Rack(<q-args>)
 
 """"""""""""""""""""""""""""""
 " => vim-plug

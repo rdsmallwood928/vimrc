@@ -43,8 +43,8 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'edkolev/promptline.vim'
-Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'szw/vim-tags'
+Plug 'mileszs/ack.vim'
 
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
