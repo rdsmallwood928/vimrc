@@ -23,7 +23,6 @@ Plug 'elzr/vim-json'
 
 "Other tools
 Plug 'vim-scripts/bufexplorer.zip'
-Plug 'tmatilai/gitolite.vim'
 Plug 'ervandew/supertab'
 Plug 'sickill/vim-pasta'
 Plug 'sjl/gundo.vim'
