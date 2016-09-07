@@ -128,7 +128,7 @@ nnoremap <leader>d :Gdiff<CR>
 nnoremap <leader>s :Gstatus<CR>
 nnoremap <leader>c :Gcommit<CR>
 nnoremap <leader>h :Extradite<CR>
-
+nnoremap <leader>w :Gbrowse<CR>
 
 "Gundo
 nnoremap <leader>u :GundoToggle<CR>
@@ -149,7 +149,6 @@ nnoremap <leader>pc :call PluginReloadAndRun("PlugClean")<CR>
 " => Syntastic
 """"""""""""""""""""""""""""""
 let g:syntastic_javascript_checkers = ['jshint']
-
 
 """"""""""""""""""""""""""""""
 " => vim-json
@@ -181,7 +180,6 @@ let g:rainbow_active=1
 set tags=./tags,tags;
 let g:tagbar_compact=1
 let g:tagbar_autoclose=1
-
 
 """"""""""""""""""""""""""""""
 " => Eclim
