@@ -195,10 +195,10 @@ endif
 function! Rack(args)
   let l:gitDir = system('git rev-parse –show-toplevel')
   if l:gitDir =~ 'Not a git repository'
-    execute ‘Ack ’ . a:args
+    execute Ack . a:args
     return
   endif
-  execute 'Ack ’ . a:args  .’ ’ . l:gitDir
+  execute Ack . a:args  .’ ’ . l:gitDir
 endfunction
 command! -bang -nargs=* -complete=file Rack call Rack(<q-args>)
 
