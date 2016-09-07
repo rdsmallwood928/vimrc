@@ -161,6 +161,11 @@ let g:vim_json_syntax_conceal=0 "disable auto conceal of quotes, etc in json fil
 let g:NERDTreeShowHidden=1
 
 """"""""""""""""""""""""""""""
+" => vim-signify
+""""""""""""""""""""""""""""""
+let g:signify_vcs_list = [ 'git' ]
+
+""""""""""""""""""""""""""""""
 " => Super Tab plugin
 """"""""""""""""""""""""""""""
 "let omnifunc=syntaxcomplete#Complete
@@ -226,25 +231,6 @@ let g:promptline_preset = {
   \'y' : [ "$(echo '\n')", promptline#slices#vcs_branch() ],
   \'warn' : [ promptline#slices#last_exit_code() ]}
 
-
-
-""""""""""""""""""""""""""""""
-" => ack.vim
-""""""""""""""""""""""""""""""
-if executable('ag')
-	let g:ackprg='ag –nocolor –nogroup –column'
-endif
-
-function! Rack(args)
-  let l:gitDir = system('git rev-parse –show-toplevel')
-  if l:gitDir =~ 'Not a git repository'
-    execute 'Ack ' . a:args
-    return
-  endif
-  execute 'Ack ' . a:args  . ' ' . l:gitDir
-endfunction
-command! -bang -nargs=* -complete=file Rack call Rack(<q-args>)
-
 """"""""""""""""""""""""""""""
 " => vim-plug
 """"""""""""""""""""""""""""""
@@ -267,7 +253,6 @@ set hlsearch " highlight as you search
 set incsearch " scroll as you search
 set ignorecase " searches are case-insensitive
 set smartcase " unless they contain upper-case letters
-
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -318,23 +303,12 @@ function! SmartQuit ()
   endif
 endfunction
 
-"write and quit buffers
-map <leader>w :w<cr>
-map <leader>q :call SmartQuit()<cr>
-map <leader>wq :w<cr><esc>:call SmartQuit()<cr>
-"write a buffer when we forgot to sudoedit
-map <leader>fw :w !sudo tee %<cr><cr>:e<cr>
-
-"Setup a cmd to edit a file in the pwd
-map <leader>e :e <c-r>=expand('%:p:h')<cr>/
-
 "Buffer naviation
 nnoremap <C-A> :bprevious<CR>
 nnoremap <C-S> :bnext<CR>
 
 "Buffer Explorer
 nnoremap <F5> :BufExplorer<cr>
-
 
 """"""""""""""""""""""""""""""
 " => Misc
