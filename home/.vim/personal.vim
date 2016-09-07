@@ -198,7 +198,7 @@ function! Rack(args)
     execute 'Ack ' . a:args
     return
   endif
-  execute Ack . a:args  . ' ' . l:gitDir
+  execute 'Ack ' . a:args  . ' ' . l:gitDir
 endfunction
 command! -bang -nargs=* -complete=file Rack call Rack(<q-args>)
 
