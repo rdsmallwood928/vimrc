@@ -188,13 +188,13 @@ let g:EclimCompletionMethod = 'omnifunc'
 """"""""""""""""""""""""""""""
 " => ack.vim
 """"""""""""""""""""""""""""""
-if executable(“ag”)
-	let g:ackprg=“ag –nocolor –nogroup –column”
+if executable('ag')
+	let g:ackprg='ag –nocolor –nogroup –column'
 endif
 
 function! Rack(args)
-  let l:gitDir = system(“git rev-parse –show-toplevel”)
-  if l:gitDir =~ “Not a git repository”
+  let l:gitDir = system('git rev-parse –show-toplevel')
+  if l:gitDir =~ 'Not a git repository'
     execute ‘Ack ’ . a:args
     return
   endif
@@ -369,17 +369,6 @@ endif
 
 """"""""""""""""""""""""""""""
 " => Grep & Search
-""""""""""""""""""""""""""""""
-" Try do use the ack program when available
-let tmp = ''
-for i in ['ack', 'ack-grep']
-  let tmp = substitute (system ('which '.i), '\n.*', '', '')
-  if v:shell_error == 0
-    exec "set grepprg=".tmp."\\ -a\\ -H\\ --nocolor\\ --nogroup"
-    break
-  endif
-endfor
-unlet tmp
 
 if executable('ag')
   " Use Ag over Grep
