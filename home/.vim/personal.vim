@@ -65,6 +65,9 @@ filetype indent on
 syntax on
 set diffopt=vertical
 
+" ctrl-j messes up my tmux splits
+let g:BASH_Ctrl_j = 'off'
+
 """"""""""""""""""""""""""""""
 " => Colors and Fonts
 """"""""""""""""""""""""""""""
