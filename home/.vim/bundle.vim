@@ -20,6 +20,7 @@ Plug 'fatih/vim-go'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
+Plug 'rudes/vim-java'
 
 "Other tools
 Plug 'vim-scripts/bufexplorer.zip'
@@ -36,6 +37,7 @@ Plug 'bling/vim-airline'
 Plug 'edkolev/promptline.vim'
 Plug 'szw/vim-tags'
 Plug 'rking/ag.vim', { 'on': 'Ag' }
+Plug 'SirVer/ultisnips'
 
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
