@@ -21,6 +21,7 @@ Plug 'fatih/vim-go'
 Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
+Plug 'vim-scripts/TagHighlight'
 
 "Other tools
 Plug 'vim-scripts/bufexplorer.zip'
