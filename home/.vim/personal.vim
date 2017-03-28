@@ -193,6 +193,7 @@ let g:tagbar_autoclose=1
 " => Eclim
 """"""""""""""""""""""""""""""
 let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimFileTypeValidate = 0
 
 """""""""""""""""""""""""""""
 " => ag.vim
