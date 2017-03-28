@@ -13,6 +13,7 @@ Plug 'int3/vim-extradite'
 Plug 'mhinz/vim-signify'
 
 "Syntax etc.
+Plug 'vim-scripts/cSyntaxAfter'
 Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/bash-support.vim'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
