@@ -22,6 +22,7 @@ Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
 Plug 'vim-scripts/TagHighlight'
+Plug 'vim-scripts/AutoTag'
 
 "Other tools
 Plug 'vim-scripts/bufexplorer.zip'
