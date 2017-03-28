@@ -1,4 +1,4 @@
-yntax file
+" Vim syntax file
 " Language:	Java
 " Maintainer:	Claudio Fleiner <claudio@fleiner.com>
 " URL:		http://www.fleiner.com/vim/syntax/java.vim
