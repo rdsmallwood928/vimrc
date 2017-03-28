@@ -63,6 +63,7 @@ set ttimeoutlen=100
 filetype plugin on
 filetype indent on
 syntax on
+autocmd! FileType c,cpp,java,php call CSyntaxAfter()
 set diffopt=vertical
 
 " ctrl-j messes up my tmux splits
