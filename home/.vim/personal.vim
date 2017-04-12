@@ -138,8 +138,8 @@ nnoremap <leader>w :Gbrowse<CR>
 nnoremap <leader>u :GundoToggle<CR>
 
 "FZF
-nnoremap <leader>a :Ag<space>
-nnoremap <leader>p :Files<space>
+nnoremap <leader>a :Ag<Enter>
+nnoremap <leader>p :Files<Enter>
 
 "Eclim
 nnoremap <leader>vi :JavaImportOrganize<CR>
