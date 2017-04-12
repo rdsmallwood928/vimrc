@@ -34,13 +34,11 @@ if executable('ctags')
   Plug 'majutsushi/tagbar'
 endif
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'kien/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-airline'
 Plug 'edkolev/promptline.vim'
 Plug 'szw/vim-tags'
-Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'SirVer/ultisnips'
 
 Plug 'scrooloose/nerdtree'
