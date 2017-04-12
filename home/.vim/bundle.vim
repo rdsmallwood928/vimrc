@@ -35,6 +35,7 @@ if executable('ctags')
 endif
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-airline'
 Plug 'edkolev/promptline.vim'
