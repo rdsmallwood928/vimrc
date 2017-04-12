@@ -197,10 +197,13 @@ let g:tagbar_autoclose=1
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimFileTypeValidate = 0
 
-"""""""""""""""""""""""""""""
-" => ag.vim
-"""""""""""""""""""""""""""""
-let g:ag_highlight = 1
+""""""""""""""""""""""""""""""
+" => FZF
+""""""""""""""""""""""""""""""
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-s': 'vsplit' }
 
 """"""""""""""""""""""""""""""
 " => Powerline / Airline
