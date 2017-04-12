@@ -137,8 +137,9 @@ nnoremap <leader>w :Gbrowse<CR>
 "Gundo
 nnoremap <leader>u :GundoToggle<CR>
 
-"Silver Searcher
-nnoremap <leader>ag :Ag!<space>
+"FZF
+nnoremap <leader>a :Ag<space>
+nnoremap <leader>p :Files<space>
 
 "Eclim
 nnoremap <leader>vi :JavaImportOrganize<CR>
