@@ -58,7 +58,7 @@ if v:version > 703 || (v:version == 703 && has('patch584'))
 	  " - status: 'installed', 'updated', or 'unchanged'
 	  " - force:  set on PlugInstall! or PlugUpdate!
     if a:info.status == 'installed' || a:info.force
-	  	!./install.py
+	  	!./install.py --tern-completer
 	  endif
   endfunction
 	Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
