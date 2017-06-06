@@ -142,8 +142,8 @@ nnoremap <leader>a :Ag<Enter>
 nnoremap <leader>p :Files<Enter>
 
 "Eclim
-nnoremap <leader>vi :JavaImportOrganize<CR>
-nnoremap <leader>vr :Java %<CR>
+nnoremap <leader>ji :JavaImport<CR>
+nnoremap <leader>jr :Java %<CR>
 
 "Vim Plug
 nnoremap <leader>pi :call PluginReloadAndRun("PlugInstall")<CR>
