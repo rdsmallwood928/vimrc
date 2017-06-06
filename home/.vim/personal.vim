@@ -143,6 +143,7 @@ nnoremap <leader>p :Files<Enter>
 
 "Eclim
 nnoremap <leader>ji :JavaImport<CR>
+nnoremap <leader>jio :JavaImportOrganize<CR>
 nnoremap <leader>jr :Java %<CR>
 
 "Vim Plug
