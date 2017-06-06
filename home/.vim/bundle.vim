@@ -14,7 +14,6 @@ Plug 'mhinz/vim-signify'
 
 "Syntax etc.
 Plug 'vim-scripts/cSyntaxAfter'
-Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/bash-support.vim'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'fatih/vim-go'
@@ -23,6 +22,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
 Plug 'vim-scripts/TagHighlight'
 Plug 'vim-scripts/AutoTag'
+Plug 'w0rp/ale'
 
 "Other tools
 Plug 'vim-scripts/bufexplorer.zip'
@@ -49,7 +49,6 @@ Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dansomething/vim-eclim'
 Plug 'nvie/vim-flake8'
-Plug 'w0rp/ale'
 
 
 if v:version > 703 || (v:version == 703 && has('patch584'))
