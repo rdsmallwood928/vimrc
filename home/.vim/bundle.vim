@@ -49,7 +49,6 @@ Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dansomething/vim-eclim'
 Plug 'nvie/vim-flake8'
-Plug 'rustushki/JavaImp.vim'
 
 
 if v:version > 703 || (v:version == 703 && has('patch584'))
