@@ -152,10 +152,11 @@ nnoremap <leader>pu :call PluginReloadAndRun("PlugUpdate")<CR>
 nnoremap <leader>pc :call PluginReloadAndRun("PlugClean")<CR>
 
 """"""""""""""""""""""""""""""
-" => Syntastic
+" => A.L.E.
 """"""""""""""""""""""""""""""
-let g:syntastic_javascript_checkers = ['eslint']
-
+let g:ale_linters = {
+  'javascript': ['eslint']
+}
 """"""""""""""""""""""""""""""
 " => vim-json
 """"""""""""""""""""""""""""""
