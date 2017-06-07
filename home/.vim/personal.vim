@@ -155,8 +155,8 @@ nnoremap <leader>pc :call PluginReloadAndRun("PlugClean")<CR>
 " => A.L.E.
 """"""""""""""""""""""""""""""
 let g:ale_linters = {
-  'javascript': ['eslint']
-}
+  \ 'javascript': ['eslint']
+  \}
 """"""""""""""""""""""""""""""
 " => vim-json
 """"""""""""""""""""""""""""""
