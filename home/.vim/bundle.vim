@@ -40,6 +40,7 @@ Plug 'bling/vim-airline'
 Plug 'edkolev/promptline.vim'
 Plug 'szw/vim-tags'
 Plug 'SirVer/ultisnips'
+Plug 'scrooloose/nerdcommenter'
 
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
